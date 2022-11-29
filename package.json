@@ -1,0 +1,28 @@
+{
+  "name": "adventofcode-2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JorisMolnar/advent-of-code-2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "just-permutations": "^2.0.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^16.11.11",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.1.2"
+  },
+  "volta": {
+    "node": "16.18.1"
+  }
+}
