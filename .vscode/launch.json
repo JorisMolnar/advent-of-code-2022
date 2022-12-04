@@ -11,8 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day1A\\app.ts",
-            "preLaunchTask": "tsc: build - Day1A/tsconfig.json",
+            "program": "${workspaceFolder}/day1a/app.ts",
+            "preLaunchTask": "tsc: build - day1a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -25,8 +25,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day1B\\app.ts",
-            "preLaunchTask": "tsc: build - Day1B/tsconfig.json",
+            "program": "${workspaceFolder}/day1b/app.ts",
+            "preLaunchTask": "tsc: build - day1b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -39,8 +39,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day2A\\app.ts",
-            "preLaunchTask": "tsc: build - Day2A/tsconfig.json",
+            "program": "${workspaceFolder}/day2a/app.ts",
+            "preLaunchTask": "tsc: build - day2a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -53,8 +53,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day2B\\app.ts",
-            "preLaunchTask": "tsc: build - Day2B/tsconfig.json",
+            "program": "${workspaceFolder}/day2b/app.ts",
+            "preLaunchTask": "tsc: build - day2b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -67,8 +67,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day3A\\app.ts",
-            "preLaunchTask": "tsc: build - Day3A/tsconfig.json",
+            "program": "${workspaceFolder}/day3a/app.ts",
+            "preLaunchTask": "tsc: build - day3a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -81,8 +81,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day3B\\app.ts",
-            "preLaunchTask": "tsc: build - Day3B/tsconfig.json",
+            "program": "${workspaceFolder}/day3b/app.ts",
+            "preLaunchTask": "tsc: build - day3b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -95,8 +95,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day4A\\app.ts",
-            "preLaunchTask": "tsc: build - Day4A/tsconfig.json",
+            "program": "${workspaceFolder}/day4a/app.ts",
+            "preLaunchTask": "tsc: build - day4a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -109,8 +109,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day4B\\app.ts",
-            "preLaunchTask": "tsc: build - Day4B/tsconfig.json",
+            "program": "${workspaceFolder}/day4b/app.ts",
+            "preLaunchTask": "tsc: build - day4b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -123,8 +123,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day5A\\app.ts",
-            "preLaunchTask": "tsc: build - Day5A/tsconfig.json",
+            "program": "${workspaceFolder}/day5a/app.ts",
+            "preLaunchTask": "tsc: build - day5a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -137,8 +137,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day5B\\app.ts",
-            "preLaunchTask": "tsc: build - Day5B/tsconfig.json",
+            "program": "${workspaceFolder}/day5b/app.ts",
+            "preLaunchTask": "tsc: build - day5b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -151,8 +151,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day6A\\app.ts",
-            "preLaunchTask": "tsc: build - Day6A/tsconfig.json",
+            "program": "${workspaceFolder}/day6a/app.ts",
+            "preLaunchTask": "tsc: build - day6a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -165,8 +165,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day6B\\app.ts",
-            "preLaunchTask": "tsc: build - Day6B/tsconfig.json",
+            "program": "${workspaceFolder}/day6b/app.ts",
+            "preLaunchTask": "tsc: build - day6b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -179,8 +179,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day7A\\app.ts",
-            "preLaunchTask": "tsc: build - Day7A/tsconfig.json",
+            "program": "${workspaceFolder}/day7a/app.ts",
+            "preLaunchTask": "tsc: build - day7a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -193,8 +193,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day7B\\app.ts",
-            "preLaunchTask": "tsc: build - Day7B/tsconfig.json",
+            "program": "${workspaceFolder}/day7b/app.ts",
+            "preLaunchTask": "tsc: build - day7b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -207,8 +207,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day8A\\app.ts",
-            "preLaunchTask": "tsc: build - Day8A/tsconfig.json",
+            "program": "${workspaceFolder}/day8a/app.ts",
+            "preLaunchTask": "tsc: build - day8a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -221,8 +221,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day8B\\app.ts",
-            "preLaunchTask": "tsc: build - Day8B/tsconfig.json",
+            "program": "${workspaceFolder}/day8b/app.ts",
+            "preLaunchTask": "tsc: build - day8b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -235,8 +235,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day9A\\app.ts",
-            "preLaunchTask": "tsc: build - Day9A/tsconfig.json",
+            "program": "${workspaceFolder}/day9a/app.ts",
+            "preLaunchTask": "tsc: build - day9a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -249,8 +249,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day9B\\app.ts",
-            "preLaunchTask": "tsc: build - Day9B/tsconfig.json",
+            "program": "${workspaceFolder}/day9b/app.ts",
+            "preLaunchTask": "tsc: build - day9b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -263,8 +263,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day10A\\app.ts",
-            "preLaunchTask": "tsc: build - Day10A/tsconfig.json",
+            "program": "${workspaceFolder}/day10A/app.ts",
+            "preLaunchTask": "tsc: build - day10A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -277,8 +277,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day10B\\app.ts",
-            "preLaunchTask": "tsc: build - Day10B/tsconfig.json",
+            "program": "${workspaceFolder}/day10B/app.ts",
+            "preLaunchTask": "tsc: build - day10B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -291,8 +291,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day11A\\app.ts",
-            "preLaunchTask": "tsc: build - Day11A/tsconfig.json",
+            "program": "${workspaceFolder}/day11A/app.ts",
+            "preLaunchTask": "tsc: build - day11A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -305,8 +305,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day11B\\app.ts",
-            "preLaunchTask": "tsc: build - Day11B/tsconfig.json",
+            "program": "${workspaceFolder}/day11B/app.ts",
+            "preLaunchTask": "tsc: build - day11B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -319,8 +319,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day12A\\app.ts",
-            "preLaunchTask": "tsc: build - Day12A/tsconfig.json",
+            "program": "${workspaceFolder}/day12A/app.ts",
+            "preLaunchTask": "tsc: build - day12A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -333,8 +333,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day12B\\app.ts",
-            "preLaunchTask": "tsc: build - Day12B/tsconfig.json",
+            "program": "${workspaceFolder}/day12B/app.ts",
+            "preLaunchTask": "tsc: build - day12B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -347,8 +347,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day13A\\app.ts",
-            "preLaunchTask": "tsc: build - Day13A/tsconfig.json",
+            "program": "${workspaceFolder}/day13A/app.ts",
+            "preLaunchTask": "tsc: build - day13A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -361,8 +361,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day13B\\app.ts",
-            "preLaunchTask": "tsc: build - Day13B/tsconfig.json",
+            "program": "${workspaceFolder}/day13B/app.ts",
+            "preLaunchTask": "tsc: build - day13B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -375,8 +375,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day14A\\app.ts",
-            "preLaunchTask": "tsc: build - Day14A/tsconfig.json",
+            "program": "${workspaceFolder}/day14A/app.ts",
+            "preLaunchTask": "tsc: build - day14A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -389,8 +389,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day14B\\app.ts",
-            "preLaunchTask": "tsc: build - Day14B/tsconfig.json",
+            "program": "${workspaceFolder}/day14B/app.ts",
+            "preLaunchTask": "tsc: build - day14B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -403,8 +403,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day15A\\app.ts",
-            "preLaunchTask": "tsc: build - Day15A/tsconfig.json",
+            "program": "${workspaceFolder}/day15A/app.ts",
+            "preLaunchTask": "tsc: build - day15A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -417,8 +417,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day15B\\app.ts",
-            "preLaunchTask": "tsc: build - Day15B/tsconfig.json",
+            "program": "${workspaceFolder}/day15B/app.ts",
+            "preLaunchTask": "tsc: build - day15B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -431,8 +431,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day16A\\app.ts",
-            "preLaunchTask": "tsc: build - Day16A/tsconfig.json",
+            "program": "${workspaceFolder}/day16A/app.ts",
+            "preLaunchTask": "tsc: build - day16A/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -445,8 +445,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Day16B\\app.ts",
-            "preLaunchTask": "tsc: build - Day16B/tsconfig.json",
+            "program": "${workspaceFolder}/day16B/app.ts",
+            "preLaunchTask": "tsc: build - day16B/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
