@@ -18,15 +18,7 @@ export class Program {
 }
 
 /** Split input to a list of lines */
-const parseInput = flow(
+const parseInput: (input: string) => string[][] = flow(
   split('\n'),
-  map(flow(
-    split(' -> '),
-    map(flow(
-      split(','),
-      map(Number)
-    )),
-    map(([x, y]) => ({ x, y }))
-  )),
-  map(([a, b]) => ({ a, b }))
+  map(split(' -> '))
 )
