@@ -10,5 +10,9 @@ insert_final_newline = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{js,ts}]
+[*.{js,mjs,ts}]
 indent_size = 2
+
+[input.txt,input-example.txt]
+insert_final_newline = false
+trim_trailing_whitespace = false

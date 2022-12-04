@@ -18,4 +18,5 @@
 out/
 node_modules/
 AdventOfCode.txt
+.env
 day*/input.txt

@@ -1,6 +1,6 @@
 import { Program } from './program'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { example, input } from './input'
+import { readExampleInput, readInput } from '../utils/read-input'
 
-new Program().main(example)
+void readExampleInput('<<part>>').then(input => new Program().main(input))
