@@ -2,6 +2,7 @@
 import { range, unzip } from 'lodash'
 import { flow, map, slice, tap } from 'lodash/fp'
 
+export const duplicate = <T>(amount: number, element: T) => new Array(amount).fill(element)
 export const transpose = <T>(matrix: T[][]): T[][] => unzip(matrix)
 export const log: <T>(v: T) => T = tap(console.log)
 
