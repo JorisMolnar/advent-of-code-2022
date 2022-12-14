@@ -263,8 +263,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day10A/app.ts",
-            "preLaunchTask": "tsc: build - day10A/tsconfig.json",
+            "program": "${workspaceFolder}/day10a/app.ts",
+            "preLaunchTask": "tsc: build - day10a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -277,8 +277,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day10B/app.ts",
-            "preLaunchTask": "tsc: build - day10B/tsconfig.json",
+            "program": "${workspaceFolder}/day10b/app.ts",
+            "preLaunchTask": "tsc: build - day10b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -291,8 +291,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day11A/app.ts",
-            "preLaunchTask": "tsc: build - day11A/tsconfig.json",
+            "program": "${workspaceFolder}/day11a/app.ts",
+            "preLaunchTask": "tsc: build - day11a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -305,8 +305,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day11B/app.ts",
-            "preLaunchTask": "tsc: build - day11B/tsconfig.json",
+            "program": "${workspaceFolder}/day11b/app.ts",
+            "preLaunchTask": "tsc: build - day11b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -319,8 +319,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day12A/app.ts",
-            "preLaunchTask": "tsc: build - day12A/tsconfig.json",
+            "program": "${workspaceFolder}/day12a/app.ts",
+            "preLaunchTask": "tsc: build - day12a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -333,8 +333,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day12B/app.ts",
-            "preLaunchTask": "tsc: build - day12B/tsconfig.json",
+            "program": "${workspaceFolder}/day12b/app.ts",
+            "preLaunchTask": "tsc: build - day12b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -347,8 +347,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day13A/app.ts",
-            "preLaunchTask": "tsc: build - day13A/tsconfig.json",
+            "program": "${workspaceFolder}/day13a/app.ts",
+            "preLaunchTask": "tsc: build - day13a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -361,8 +361,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day13B/app.ts",
-            "preLaunchTask": "tsc: build - day13B/tsconfig.json",
+            "program": "${workspaceFolder}/day13b/app.ts",
+            "preLaunchTask": "tsc: build - day13b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -375,8 +375,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day14A/app.ts",
-            "preLaunchTask": "tsc: build - day14A/tsconfig.json",
+            "program": "${workspaceFolder}/day14a/app.ts",
+            "preLaunchTask": "tsc: build - day14a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -389,8 +389,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day14B/app.ts",
-            "preLaunchTask": "tsc: build - day14B/tsconfig.json",
+            "program": "${workspaceFolder}/day14b/app.ts",
+            "preLaunchTask": "tsc: build - day14b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -403,8 +403,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day15A/app.ts",
-            "preLaunchTask": "tsc: build - day15A/tsconfig.json",
+            "program": "${workspaceFolder}/day15a/app.ts",
+            "preLaunchTask": "tsc: build - day15a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -417,8 +417,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day15B/app.ts",
-            "preLaunchTask": "tsc: build - day15B/tsconfig.json",
+            "program": "${workspaceFolder}/day15b/app.ts",
+            "preLaunchTask": "tsc: build - day15b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -431,8 +431,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day16A/app.ts",
-            "preLaunchTask": "tsc: build - day16A/tsconfig.json",
+            "program": "${workspaceFolder}/day16a/app.ts",
+            "preLaunchTask": "tsc: build - day16a/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
@@ -445,8 +445,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/day16B/app.ts",
-            "preLaunchTask": "tsc: build - day16B/tsconfig.json",
+            "program": "${workspaceFolder}/day16b/app.ts",
+            "preLaunchTask": "tsc: build - day16b/tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
