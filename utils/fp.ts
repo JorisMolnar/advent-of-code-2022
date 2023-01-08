@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { range, unzip } from 'lodash'
-import { flow, map, slice, tap } from 'lodash/fp'
+import { drop, flow, map, slice, tap } from 'lodash/fp'
+
+export const match = (regexp: RegExp) => flow(
+  (s: string) => regexp.exec(s),
+  drop(1)
+)
 
 export const duplicate = <T>(amount: number, element: T) => new Array(amount).fill(element)
 export const transpose = <T>(matrix: T[][]): T[][] => unzip(matrix)
