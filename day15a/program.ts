@@ -1,7 +1,7 @@
-import { flow, map, split, toNumber } from 'lodash/fp'
+import { compact, flow, map, split, toNumber } from 'lodash/fp'
 import { performance } from 'perf_hooks'
 import { match } from '../utils/fp'
-import { Point, Sensor } from './models'
+import { Point, Range, Sensor } from './models'
 
 /*
  * 1. Calculate distance to closest beason for every sensor.
@@ -26,28 +26,11 @@ export class Program {
     const sensors = parseInput(input)
     const resultY = 2000000 // Note that the example resultY is 10, not 2000000!
 
-    const closestBeaconMap = new Map<string, number>(sensors.map(s => [
-      pointToHash(s.sensor),
-      manhattan(s.sensor, s.beacon)
-    ]))
-
-    let count = 0
-    // This range is probably way too big, but it's an easy way to check.
-    for (let x = -10_000_000; x < 10_000_000; x++) {
-      const point = { x, y: resultY }
-
-      for (const s of sensors) {
-        // Skip if point is beacon itself
-        if (pointToHash(point) === pointToHash(s.beacon)) continue
-
-        const distance = manhattan(point, s.sensor)
-        if (distance <= (closestBeaconMap.get(pointToHash(s.sensor)) ?? Infinity)) {
-          // There can't be a beacon here. Count it and stop checking other sensors.
-          count++
-          break
-        }
-      }
-    }
+    const ranges = flow(
+      map(sensorCoverageAtY(resultY)),
+      compact
+    )(sensors)
+    const count = countUniquePoints(ranges)
 
     return count
   }
@@ -55,7 +38,25 @@ export class Program {
 
 const manhattan = (p: Point, end: Point): number => Math.abs(p.x - end.x) + Math.abs(p.y - end.y)
 
-const pointToHash = (p: Point): string => `${p.x},${p.y}`
+const sensorCoverageAtY = (y: number) => (sensor: Sensor): Range | null => {
+  const distance = manhattan(sensor.sensor, sensor.beacon)
+  const deltaY = Math.abs(sensor.sensor.y - y)
+  const horizontalDistance = distance - deltaY
+
+  if (horizontalDistance < 0) return null
+
+  return [sensor.sensor.x - horizontalDistance, sensor.sensor.x + horizontalDistance]
+}
+
+const countUniquePoints = (ranges: Range[]): number => {
+  const points = new Set<number>()
+  for (const [start, end] of ranges) {
+    for (let i = start; i <= end; i++) {
+      points.add(i)
+    }
+  }
+  return points.size
+}
 
 /** Split input to a list of lines */
 const parseInput: (input: string) => Sensor[] = flow(
