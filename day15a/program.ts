@@ -1,17 +1,8 @@
-import { compact, flow, map, split, toNumber } from 'lodash/fp'
+import * as DRange from 'drange'
+import { flow, map, reduce, split, toNumber } from 'lodash/fp'
 import { performance } from 'perf_hooks'
 import { match } from '../utils/fp'
-import { Point, Range, Sensor } from './models'
-
-/*
- * 1. Calculate distance to closest beason for every sensor.
- * 2. On Y=2.000.000, for every X coordinate, get distance to every sensor.
- * 3. If distance to any sensor is less or equal to closest beacon from that sensor, count it, unless it is the beacon itself.
- *
- * NOTE: It would have been a lot smarter and faster to get the manhattan distance of every sensor/beacon combo,
- * subtract the sensor Y distance from the resultY, and used that to calculate the points on this line
- * which would be covered by that sensor. Add all points to a unique set and count the size.
- */
+import { Point, Sensor } from './models'
 
 export class Program {
   main (input: string): void {
@@ -28,9 +19,10 @@ export class Program {
 
     const ranges = flow(
       map(sensorCoverageAtY(resultY)),
-      compact
+      reduce((acc, range) => acc.add(range), new DRange())
     )(sensors)
-    const count = countUniquePoints(ranges)
+
+    const count = ranges.length
 
     return count
   }
@@ -38,24 +30,14 @@ export class Program {
 
 const manhattan = (p: Point, end: Point): number => Math.abs(p.x - end.x) + Math.abs(p.y - end.y)
 
-const sensorCoverageAtY = (y: number) => (sensor: Sensor): Range | null => {
+const sensorCoverageAtY = (y: number) => (sensor: Sensor): DRange => {
   const distance = manhattan(sensor.sensor, sensor.beacon)
   const deltaY = Math.abs(sensor.sensor.y - y)
   const horizontalDistance = distance - deltaY
 
-  if (horizontalDistance < 0) return null
+  if (horizontalDistance < 0) return new DRange()
 
-  return [sensor.sensor.x - horizontalDistance, sensor.sensor.x + horizontalDistance]
-}
-
-const countUniquePoints = (ranges: Range[]): number => {
-  const points = new Set<number>()
-  for (const [start, end] of ranges) {
-    for (let i = start; i <= end; i++) {
-      points.add(i)
-    }
-  }
-  return points.size
+  return new DRange(sensor.sensor.x - horizontalDistance, sensor.sensor.x + horizontalDistance)
 }
 
 /** Split input to a list of lines */

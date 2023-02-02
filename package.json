@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "drange": "^2.0.1",
     "just-permutations": "^2.0.1",
     "lodash": "^4.17.21"
   },
