@@ -22,3 +22,5 @@ export const window = (size: number) => <T>(data: T[]) => flow(
   getSlicers(size),
   map(slicer => slicer(data))
 )(data)
+
+export const toMap = <K, V>(entries: Array<[K, V]>) => new Map(entries)
