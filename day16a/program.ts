@@ -1,8 +1,16 @@
-import { sortedIndexBy } from 'lodash'
-import { filter, flow, map, split, sum, toNumber } from 'lodash/fp'
+import { flow, map, split, toNumber } from 'lodash/fp'
 import { performance } from 'perf_hooks'
-import { match, toMap } from '../utils/fp'
-import { Node, State } from './models'
+import { measure } from '../utils'
+import { match, toMap, window } from '../utils/fp'
+import { astar } from './astar'
+import { Node } from './models'
+
+/*
+ * Get the distance between all points and store it in a map for efficient lookup.
+ * Get all permutations of paths that fit within the time limit.
+ * Loop over permutations and calculate the score for each one: (30 - elapsed time) * flow rate.
+ * Remember that opening a valve takes 1 minute.
+ */
 
 export class Program {
   main (input: string): void {
@@ -16,127 +24,94 @@ export class Program {
   private calcResult (input: string): number {
     const nodes = parseInput(input)
 
-    const state: State = {
-      nodes,
-      time: 0, // should maybe start at 1
-      currentScore: 0,
-      currentLocation: 'AA',
-      steps: []
-    }
+    const distances = measure('distances', () => getDistances(nodes))
 
-    const bestState = bfs(state)
+    const paths: string[][] = measure('permutations', () => makePaths(
+      ['AA'],
+      0,
+      Array.from(nodes).filter(n => n[1].rate > 0).map(n => n[0]),
+      distances
+    ))
 
-    console.log(bestState.steps)
+    let bestScore = 0
+    let bestPath: string[] | null = null
 
-    return bestState.currentScore
+    measure('calculate paths', () => {
+      for (const path of paths) {
+        let timeLeft = 30
+        let score = 0
+        for (const [from, to] of window(2)(path)) {
+          timeLeft -= distances.get(hash(from, to))! + 1
+          score += timeLeft * nodes.get(to)!.rate
+        }
+
+        if (score > bestScore) {
+          bestScore = score
+          bestPath = path
+        }
+      }
+    })
+
+    console.log(bestScore, bestPath)
+
+    return bestScore
   }
 }
 
-const totalFlowRate: (nodes: Map<string, Node>) => number = flow(
-  nodes => Array.from(nodes.values()),
-  filter((node: Node) => node.isOpen),
-  map((node: Node) => node.rate),
-  sum
-)
+function getNeighbors (nodes: Map<string, Node>, curr: string, prev: string | undefined): string[] {
+  return nodes.get(curr)!.connections
+    // remove prev as going back doesn't make sense
+    .filter(p => p !== prev)
+}
 
-const hash = (state: State): string =>
-  Array.from(state.nodes).reduce((prev, curr) => prev + (curr[1].isOpen ? curr[0] + ',' : ''), '') + '-' + state.currentLocation
-
-function bfs (state: State): State {
-  // Get hash prefix for when all valves are open, because we can then stop moving
-  const allValvesHash = Array.from(state.nodes).reduce((prev, curr) => prev + (curr[1].rate > 0 ? curr[0] + ',' : ''), '')
-
-  const openSet: State[] = [state]
-
-  // map of hash to time and score
-  const gScore = new Map<string, { time: number, score: number }>([[hash(state), { time: state.time, score: 0 }]])
-
-  let bestEnd: State | null = null
-  let loopCount = 0
-
-  while (openSet.length > 0) {
-    loopCount++
-
-    // log progress
-    if (loopCount % 10_000 === 0) {
-      console.log('loop:', loopCount, 'openSet:', openSet.length, 'gScore:', gScore.size)
+function getDistances (nodes: Map<string, Node>): Map<string, number> {
+  const distances = new Map<string, number>()
+  for (const [from] of nodes) {
+    for (const [to] of Array.from(nodes).filter(([k]) => k !== from)) {
+      // astar heuristic is 0 because it is fast enough that we don't need to optimize it
+      const path = astar(from, to, c => 0, (c, p) => getNeighbors(nodes, c, p))
+      distances.set(hash(from, to), path.length - 1)
     }
+  }
+  return distances
+}
 
-    const current = openSet.shift()
-    if (current == null) throw new Error('Impossible')
+function hash (a: string, b: string): string {
+  if (a < b) return `${a}-${b}`
+  return `${b}-${a}`
+}
 
-    const node = current.nodes.get(current.currentLocation)
-    if (node == null) throw new Error('Impossible')
+/**
+ * Returns the longest paths that can be made with the given points, with a total length of less than 30
+ * @param currentPath The fixed part of the path
+ * @param currentLength The length of currentPath
+ * @param availablePoints Other points that can be added to the path
+ * @param distances Map of distances between points
+ */
+function makePaths (currentPath: string[], currentLength: number, availablePoints: string[], distances: Map<string, number>): string[][] {
+  if (availablePoints.length === 0) {
+    return [currentPath]
+  }
 
-    // Did we reach the end?
-    if (current.time === 30) {
-      if (bestEnd == null || current.currentScore > bestEnd.currentScore) {
-        bestEnd = current
-      }
-      continue
-    }
+  let paths: string[][] = []
+  for (const point of availablePoints) {
+    const newPath = [...currentPath, point]
+    const newRemainingPoints = availablePoints.filter(p => p !== point)
+    // newLength is the currentLength, plus the distance from the last point to the new point, plus 1 to open the valve
+    const newLength = currentLength + 1 + distances.get(hash(currentPath[currentPath.length - 1], point))!
 
-    const flowRate = totalFlowRate(current.nodes)
-
-    // Are all valves open?
-    if (hash(current).startsWith(allValvesHash)) {
-      openSet.push({
-        nodes: current.nodes,
-        time: current.time + 1,
-        currentScore: current.currentScore + flowRate,
-        currentLocation: current.currentLocation,
-        steps: [...current.steps, 'Did nothing']
-      })
-      continue
-    }
-
-    // Gather new states
-    const states: State[] = []
-
-    // try opening the valve
-    if (!node.isOpen && node.rate > 0) {
-      states.push({
-        nodes: new Map(current.nodes).set(current.currentLocation, { ...node, isOpen: true }),
-        time: current.time + 1,
-        currentScore: current.currentScore + flowRate,
-        currentLocation: current.currentLocation,
-        steps: [...current.steps, `Opened ${current.currentLocation}`]
-      })
-    }
-
-    // try following a connection
-    for (const connection of node.connections) {
-      states.push({
-        nodes: current.nodes,
-        time: current.time + 1,
-        currentScore: current.currentScore + flowRate,
-        currentLocation: connection,
-        steps: [...current.steps, `Moved to ${connection}`]
-      })
-    }
-
-    // Go check neighbors
-    for (const neighbor of states) {
-      const neighborHash = hash(neighbor)
-
-      const existingState = gScore.get(neighborHash) ?? { time: Infinity, score: -Infinity }
-
-      // If we found a better score for this neighbor, update it
-      // This might seem wrong, because a higher time will almost always have a higher score, but it's fine because
-      // lower time is put at the front of openSet, so it will be checked first
-      if (neighbor.currentScore > existingState.score) {
-        gScore.set(neighborHash, { time: neighbor.time, score: neighbor.currentScore })
-        const index = sortedIndexBy(openSet, neighbor, s => s.time)
-        openSet.splice(index, 0, neighbor)
-      }
+    if (newLength < 30) {
+      const newPaths = makePaths(newPath, newLength, newRemainingPoints, distances)
+      paths = paths.concat(newPaths)
     }
   }
 
-  if (bestEnd == null) throw new Error('Never found an end. Weird!')
-
-  console.log('loops:', loopCount)
-
-  return bestEnd
+  if (paths.length === 0) {
+    // currentPath is the longest we can do in this branch
+    return [currentPath]
+  } else {
+    return paths
+  }
 }
 
 const parseNode = (s: string[]): readonly [string, Node] => {
@@ -152,11 +127,3 @@ const parseInput: (input: string) => Map<string, Node> = flow(
   )),
   toMap
 )
-
-function measure<T> (name: string, callback: () => T): T {
-  const t0 = performance.now()
-  const r = callback()
-  const t1 = performance.now()
-  console.log(`${name} took ${t1 - t0} milliseconds.`)
-  return r
-}
